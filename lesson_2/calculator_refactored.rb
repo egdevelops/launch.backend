@@ -9,7 +9,7 @@ end
 def operation_to_message(op)
   case op 
   when '+'
-    'Adding'
+    'Adding' 
   when '-'
     'Subtracting'
   when '*'
