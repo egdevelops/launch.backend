@@ -3,11 +3,11 @@ def prompt(message)
 end
 
 def valid_number?(num)
-  num.to_i() != 0
+  num.to_i != 0
 end
 
 def operation_to_message(op)
-  case op  
+  case op 
   when '+'
     'Adding'
   when '-'
@@ -22,8 +22,8 @@ end
 prompt('Welcome to My Calculator. Enter your name:')
 
 name = ''
-loop do  
-  name = Kernel.gets().chomp()
+loop do
+  name = Kernel.gets.chomp
 
   if name.empty?()
     prompt('Please enter valid name:')
@@ -35,22 +35,21 @@ end
 prompt("Hello #{name}, let's calculate.")
 
 loop do # main loop
-  num1 = '' 
+  num1 = ''
   loop do
     prompt('Enter your first number:')
-    num1 = Kernel.gets().chomp().to_i 
-
+    num1 = Kernel.gets.chomp.to_i
     if valid_number?(num1)   
       break
     else
       prompt('Please enter a valid number:')
     end
-  end 
+  end
 
   num2 = '' 
   loop do
     prompt('Enter your second number:')
-    num2 = Kernel.gets().chomp().to_i 
+    num2 = Kernel.gets.chomp.to_i 
 
     if valid_number?(num2)
       break
@@ -62,14 +61,14 @@ loop do # main loop
   str = ''  
   
   prompt('Choose operator: 
-         + to add, 
+         + to add,
          - to subtract, 
          * to multiply,
          / to divide.')
   
   operator = ''
   loop do  
-    operator = Kernel.gets().chomp()  
+    operator = Kernel.gets.chomp  
 
     if %w(+ - * /).include?(operator)
       break
@@ -81,21 +80,21 @@ loop do # main loop
   prompt("#{operation_to_message(operator)}")
 
   result = case operator
-            when '+'
+           when '+'
              result = num1 + num2
-            when '-'
-              result = num1 - num2
-            when '*'
+           when '-'
+             result = num1 - num2
+           when '*'
              result = num1 * num2
-            when '/'
-              num1.to_f() / num2.to_f()
-  end         
-
+           when '/'
+             num1.to_f / num2.to_f
+           end
+  
   prompt("The result is #{result}")
 
   prompt('Do you want to perform another calculation? (Y to calculate again)')
-  answer = Kernel.gets().chomp()
-  break unless answer.downcase().start_with?('y')
+  answer = Kernel.gets.chomp
+  break unless answer.downcase.start_with?('y')
 end
 
-prompt("Thank you")
+prompt('Thank you')
