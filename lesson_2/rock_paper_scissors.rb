@@ -23,7 +23,7 @@ end
 
 replay = ''
 loop do #main loop
-
+  
   choice = ''
   loop do
     prompt "Choose one: #{VALID_CHOICES.join(', ')}:"
@@ -35,14 +35,12 @@ loop do #main loop
       prompt("That's not a valid choice.")
     end 
   end
-  
 
     computer_choice = VALID_CHOICES.sample    
 
     prompt "You chose: #{choice}; Computer chose: #{computer_choice}."   
 
     display_results(choice, computer_choice)
-
     
   prompt "Play again? Type y for yes or n for no."
   replay = gets.chomp.downcase
