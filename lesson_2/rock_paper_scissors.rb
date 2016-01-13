@@ -1,29 +1,29 @@
-VALID_CHOICES = ['rock', 'paper', 'scissors']
+
+VALID_CHOICES = %w(rock paper scissors)
 
 def prompt(message)
   Kernel.puts("=> #{message}")
 end
 
+def winner?(player1, player2)
+    player1 == 'rock' && player2 == 'scissors' ||
+    player1 == 'paper' && player2 == 'rock' ||
+    player1 == 'scissors' && player2 == 'paper'
+end
+
 def display_results(player, computer)
-  if 
-    player == 'rock' && computer == 'scissors' ||
-    player == 'paper' && computer == 'rock' ||
-    player == 'scissors' && computer == 'paper'
-    prompt 'You won!'
-  elsif 
-    player == 'rock' && computer == 'paper' ||
-    player == 'paper' && computer == 'scissors' ||
-    player == 'scissors' && computer == 'rock' 
+  if winner?(player, computer)
+    prompt 'You win!'
+  elsif winner?(computer, player)
     prompt 'You lose!'
-  else 
-    player == computer
-    prompt 'You tied!'
+  else
+    prompt 'You tied.'
   end
 end
 
 replay = ''
 loop do #main loop
-  
+
   choice = ''
   loop do
     prompt "Choose one: #{VALID_CHOICES.join(', ')}:"
@@ -32,7 +32,7 @@ loop do #main loop
     if VALID_CHOICES.include?(choice)
       break
     else
-      prompt("That's not a valid choice.")
+      prompt 'That\'s not a valid choice.' 
     end 
   end
 
@@ -42,9 +42,9 @@ loop do #main loop
 
     display_results(choice, computer_choice)
     
-  prompt "Play again? Type y for yes or n for no."
+  prompt "Play again? Type 'y' for Yes or any key for No."
   replay = gets.chomp.downcase
   break unless replay.start_with?('y')
 end
 
-prompt "Thanks for playing. :) "
+prompt 'Thanks for playing. :)'
