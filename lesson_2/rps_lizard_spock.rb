@@ -9,6 +9,10 @@ def prompt(message)
   puts("=> #{message}")
 end
 
+def divider(size)
+  '-' * size
+end
+
 def prompt_for_weapon
   VALID_CHOICES.each do |key, value|
     prompt "Choose: '#{key}' for #{value}"
@@ -43,7 +47,7 @@ def winner_of_round(player, computer)
   end
 end
 
-def winner_of_game(player_points, computer_points)
+def display_winner_of_game(player_points, computer_points)
   if player_points > computer_points
     puts "You won the game!"
   else
@@ -54,15 +58,15 @@ end
 player_points = 0
 computer_points = 0
 
-puts '-----------------------------------------------------------'
+puts divider(59)
 puts ''
 prompt "Welcome to The Rock, Paper, Scissors, Lizard, Spock Game."
 puts ''
-puts '-----------------------------------------------------------'
+puts divider(59)
 puts ''
 prompt 'The Best Out of Five Rounds Wins'.center(59)
 puts ''
-puts '-----------------------------------------------------------'
+puts divider(59)
 
 loop do 
   player_choice = valid_weapon
@@ -71,11 +75,11 @@ loop do
 
   prompt "You chose: #{player_choice}; Computer chose: #{computer_choice}."
 
-  puts '-----------------------------------------------------------'
+  puts divider(59)
 
   winner_of_round(player_choice, computer_choice)
 
-  puts '-----------------------------------------------------------'
+  puts divider(59)
 
   player_points += 1 if winner?(player_choice, computer_choice)
   computer_points += 1 if winner?(computer_choice, player_choice)
@@ -83,11 +87,11 @@ loop do
   prompt "Your score is: #{player_points}".center(59)
   prompt "Computer's score is: #{computer_points}".center(59)
 
-  puts '------------------------------------------------------------'
+  puts divider(59)
   
   break if player_points == 5 || computer_points == 5 
 end
 
 prompt 'Thanks for playing. :)'
 
-winner_of_game(player_points, computer_points)
+display_winner_of_game(player_points, computer_points)
