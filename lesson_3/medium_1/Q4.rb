@@ -33,3 +33,6 @@ numbers.each_with_index do |number, index|
   numbers.shift(1)
 end
 
+# =>
+# "0 [1, 2, 3, 4] 1"
+# "1 [2, 3, 4] 3"
