@@ -1,4 +1,4 @@
-# Q8 Write version of Titelize for core Ruby:
+# Q8 Write Rails version of Titelize for core Ruby:
 
 def titleize(title)
   title.split(" ").map { |word| word.capitalize }.join(" ")

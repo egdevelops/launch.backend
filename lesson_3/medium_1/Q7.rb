@@ -10,7 +10,7 @@ def fib(first_num, second_num, limit)
   sum
 end
 
-result = fib(0,1,15)
+result = fib(0,1,100)
 puts "Result is #{result}"
 
 # My Solution:

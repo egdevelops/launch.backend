@@ -8,7 +8,7 @@ def rolling_buffer1(buffer, max_buffer_size, new_element)
   buffer
 end
 
-p rolling_buffer1()
+p rolling_buffer1([2, 4, 6, 8], 5, 10)
 
 # << mutates the caller (Destructive)
 

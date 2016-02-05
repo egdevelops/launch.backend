@@ -8,7 +8,9 @@ ages = { "Herman" => 32,
           "Spot" => 237
         }
 
-p ages.keep_if { |name, age| age < 100 }
+p ages.keep_if { |_, age| age < 30 }
 
-# => {"Herman"=>32, "Lily"=>30, "Eddie"=>10, "Marilyn"=>22}
+
+# => {"Eddie"=>10, "Marilyn"=>22}
+
 
